@@ -1,0 +1,93 @@
+// Colors
+$emphasis-background-color: #6d6e70;
+$base-font-color: #666;
+$emphasis-color: rgb(246, 146, 30);
+
+@mixin button {
+  border: 1px solid #bbb;
+  background: #d4d4d4;
+  background: linear-gradient(to bottom,#d4d4d4 0,#999 100%);
+  text-transform: uppercase;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 0.5em;
+  font-weight: 600;
+  letter-spacing: .1em;
+}
+
+@mixin activeButton {
+  background: linear-gradient(to bottom,#f9bc6b 0,#f27f13);
+  border: 1px solid #ed8622;
+  text-shadow: 1px 1px 1px #ed8522;
+  color: white;
+  cursor: pointer;
+}
+
+* {
+  color: $base-font-color;
+}
+
+body {
+  font-size: 14px;
+  letter-spacing: .05em;
+}
+
+body {
+  padding: 1em 2em;
+  h1 {
+    color: $emphasis-color;
+  }
+  .add-note-button {
+    position: fixed;
+    bottom: 0.5em;
+    right: 1em;
+    @include activeButton;
+    font-size: 2em;
+    border-radius: 50%;
+    height: 2em;
+    width: 2em;
+    line-height: 1;
+  }
+  .note-list {
+    list-style-type: none;
+    padding-left: 0;
+    font-weight: 600;
+    .note {
+      border: 1px solid #ccc;
+      border-radius: 0.25em;
+      box-shadow: 0 0 4px #888;
+      padding: 0.5em 1em;
+      font-size: 1.5em;
+      margin: 1em 0;
+      .edit-button, .delete-button {
+        @include button;
+        margin-right: 1em;
+        margin-top: 1em;
+      }
+    }
+  }
+  .note-form {
+    position: absolute;
+    top: calc(50% - 8em);
+    left: calc(50% - 10em);
+    width: 16em;
+    height: 16em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #888;
+    background-color: white;
+    padding: 2em;
+    textarea {
+      width: 100%;
+      height: 75%;
+      border: 1px solid #ccc;
+      font-size: 1.5em;
+      font-style: inherit;
+      resize: none;
+    }
+    .done-button {
+      @include button;
+      float: right;
+      margin-top: 2em;
+    }
+  }
+}
